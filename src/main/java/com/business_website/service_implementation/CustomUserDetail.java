@@ -1,4 +1,4 @@
-package com.business_website.user_admin_service;
+package com.business_website.service_implementation;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.business_website.user_admin_model.User;
+import com.business_website.models.User;
 
 public class CustomUserDetail implements UserDetails{
 

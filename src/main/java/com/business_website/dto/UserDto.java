@@ -1,16 +1,20 @@
 package com.business_website.dto;
 
+import java.time.LocalDateTime;
 
 public class UserDto {
 
     private String email;
     private String password;
+    private LocalDateTime createdAt;
     private String role;
+  
 
-    public UserDto(String email, String password, String role) {
+    public UserDto(String email, String password,LocalDateTime createdAt, String role) {
         super();
         this.email = email;
         this.password = password;
+        this.createdAt = createdAt;
         this.role = role;
     }
 
@@ -37,5 +41,15 @@ public class UserDto {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    
 
 }

@@ -11,8 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.business_website.user_admin_service.CustomSucessHandler;
-import com.business_website.user_admin_service.CustomUserDetailService;
+import com.business_website.service_implementation.CustomSucessHandler;
+import com.business_website.service_implementation.CustomUserDetailService;
 
 
 @Configuration
@@ -35,6 +35,16 @@ public class SecurityConfig {
          
         httpSecurity.csrf(c -> c.disable())
         .authorizeHttpRequests(request -> request.requestMatchers("/admin-page")
+        .hasAuthority("ADMIN")
+        .requestMatchers("admin-page/projects")
+        .hasAuthority("ADMIN")
+        .requestMatchers("/admin-page/projects/new")
+        .hasAuthority("ADMIN")
+        .requestMatchers("admin-page/projects/update/{id}")
+        .hasAuthority("ADMIN")
+        .requestMatchers("admin-page/projects/delete/{id}")
+        .hasAuthority("ADMIN")
+        .requestMatchers("admin-page/projects/confirmDelete/{id}")
         .hasAuthority("ADMIN")
         .requestMatchers("/")
         .hasAuthority("USER")
