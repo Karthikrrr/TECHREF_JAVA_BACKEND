@@ -1,4 +1,6 @@
-package com.business_website.user_admin_model;
+package com.business_website.models;
+
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,6 +24,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "createdAt")
+    private LocalDateTime createdAt;
+
     @Column(name = "role")
     private String role;
 
@@ -29,9 +34,10 @@ public class User {
         super();
     }
     
-    public User(String email, String password, String role) {
+    public User(String email, String password, LocalDateTime createdAt ,String role) {
         this.email = email;
         this.password = password;
+        this.createdAt = LocalDateTime.now();
         this.role = "USER";
     }
 
@@ -66,5 +72,15 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+
 
 }
